@@ -1,0 +1,22 @@
+entity Evento {
+	String nomeDoEvento
+    String descricao
+    LocalDate dataCadastro
+    LocalDate dataDoEvento
+    String endereco
+    Blob thumbnail
+}
+
+entity Ingresso {
+	String codigoReferencia
+}
+
+entity Usuario {
+	String nome
+    LocalDate dataNascimento
+    String cpf
+    String rg
+}
+
+paginate Evento with pagination;
+paginate Ingresso with pagination;
