@@ -1,0 +1,26 @@
+entity Evento {
+	nomeDoEvento String 
+    descricao String
+    dataCadastro LocalDate
+    dataDoEvento LocalDate
+    endereco String
+    thumbnail Blob
+}
+
+entity Ingresso {
+	codigoReferencia String
+}
+
+entity Usuario {
+	nome String
+    dataNascimento LocalDate
+    cpf String
+    rg String
+}
+
+relationship ManyToOne {
+  Ingresso{evento required} to Evento{ingressos}
+}
+
+paginate Evento with pagination
+paginate Ingresso with pagination
