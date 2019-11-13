@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="evento">
+            <h2><span>Evento</span> {{evento.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nome Do Evento</span></dt>
+                <dd>
+                    <span>{{evento.nomeDoEvento}}</span>
+                </dd>
+                <dt><span>Descricao</span></dt>
+                <dd>
+                    <span>{{evento.descricao}}</span>
+                </dd>
+                <dt><span>Data Cadastro</span></dt>
+                <dd>
+                    <span>{{evento.dataCadastro}}</span>
+                </dd>
+                <dt><span>Data Do Evento</span></dt>
+                <dd>
+                    <span>{{evento.dataDoEvento}}</span>
+                </dd>
+                <dt><span>Endereco</span></dt>
+                <dd>
+                    <span>{{evento.endereco}}</span>
+                </dd>
+                <dt><span>Thumbnail</span></dt>
+                <dd>
+                    <div *ngIf="evento.thumbnail">
+                        <a (click)="openFile(evento.thumbnailContentType, evento.thumbnail)">open</a>
+                        {{evento.thumbnailContentType}}, {{byteSize(evento.thumbnail)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/evento', evento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
